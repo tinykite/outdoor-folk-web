@@ -7,7 +7,7 @@ const Header = styled.header`
   margin: 3rem auto;
 
   @media (min-width: 75vw) {
-    max-width: 80vw;
+    max-width: 75vw;
   }
 `;
 

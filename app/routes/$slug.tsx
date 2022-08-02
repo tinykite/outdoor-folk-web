@@ -28,25 +28,26 @@ export async function loader({ request, params }: any) {
 }
 
 const ArticleDetail = () => {
-  let { initialData, preview, query, queryParams } = useLoaderData();
+  let { initialData } = useLoaderData();
+  // let { initialData, preview, query, queryParams } = useLoaderData();
 
-  // If `preview` mode is active, the <Preview /> component will update page data
-  const [data, setData] = useState(initialData);
+  // // If `preview` mode is active, the <Preview /> component will update page data
+  // const [data, setData] = useState(initialData);
 
   // Bonus, a helper function checks the returned documents
   // To show Draft if in preview mode, otherwise Published
-  const content = filterDataToSingleItem(data, preview);
+  const content = filterDataToSingleItem(initialData);
 
   return (
     <>
-      {preview ? (
+      {/* {preview ? (
         <Preview
           data={data}
           setData={setData}
           query={query}
           queryParams={queryParams}
         />
-      ) : null}
+      ) : null} */}
       <Article content={content} />
     </>
   );

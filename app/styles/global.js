@@ -31,14 +31,9 @@ p, h1, h2, h3, h4, h5, h6 {
 `;
 
 export const GlobalStyles = createGlobalStyle`
-  :root {
-    --color-text-primary: #FFF;
-    --color-bg-primary: #252525;
-  }
-
   body {
-    background: var(--color-bg-primary);
-    color: var(--color-text-primary);
+    background: var(--color-background);
+    color: var(--color-text);
     transition: background 0.25s ease-in-out;
     font-family: Avenir, sans-serif;
     line-height: 1.5;
@@ -47,17 +42,16 @@ export const GlobalStyles = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
   }
 
-  .light {
-    --color-text-primary: #252525;
-    --color-bg-primary: #FFF;
+  a:link, a:visited, a:focus, a:active {
+    color: inherit;  
   }
 
-  a:link, a:visited, a:focus, a:active {
-    color: inherit;
+  a:not(.active, :hover, :focus) {
     text-decoration: none;
   }
 
-  a:hover {
-    text-decoration: underline;
+  // TODO: Refactor this to read from design tokens
+  .dark {
+    --color-background: #25252;
   }
 `;

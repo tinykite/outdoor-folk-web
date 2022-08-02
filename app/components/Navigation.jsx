@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { navLinks } from "../lib/config/navLinks";
-import { Link } from "@remix-run/react";
+import { NavLink } from "@remix-run/react";
 
 const List = styled.ul`
   list-style: none;
@@ -12,17 +12,10 @@ const ListItem = styled.li`
   padding: 0;
   font-family: courier, monospace;
   font-style: normal;
-  font-size: 1rem;
-  margin-right: 1rem;
+  font-size: 1.125rem;
 
-  & a:link,
-  a:visited {
-    color: inherit;
-    text-decoration: none;
-  }
-  a:focus,
-  a:hover {
-    text-decoration: underline;
+  &:not(:last-child) {
+    margin-right: 1.5rem;
   }
 `;
 
@@ -32,7 +25,7 @@ export default function Navigation() {
       {navLinks.map((link) => {
         return (
           <ListItem key={link.label}>
-            <Link to={link.url}>{link.label}</Link>
+            <NavLink to={link.url}>{link.label}</NavLink>
           </ListItem>
         );
       })}

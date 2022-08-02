@@ -1,6 +1,5 @@
 import { PortableText } from "@portabletext/react";
 import styled from "styled-components";
-import { Link } from "@remix-run/react";
 import { config } from "~/lib/sanity/config";
 import urlBuilder from "@sanity/image-url";
 
@@ -12,7 +11,7 @@ const CenteredDivider = styled.div`
 
 const Container = styled.article`
   width: 90%;
-  margin: 4rem auto;
+  margin: 4rem auto 0;
 
   @media (min-width: 45rem) {
     width: 100%;
@@ -202,30 +201,19 @@ const components = {
   },
 };
 
-export default function Article({ content, previewContent = false, ...props }) {
-  console.log(content.imageCredit);
+export default function Article({ content, ...props }) {
   return (
     <Container {...props}>
-      {previewContent ? (
-        <Link to={content.slug.current}>
-          <Headline>{content.title}</Headline>
-        </Link>
-      ) : (
-        <Headline>{content?.title ? content.title : null}</Headline>
-      )}
+      <Headline>{content?.title ? content.title : null}</Headline>
 
       {content?.description ? (
         <Description>{content?.description}</Description>
       ) : null}
-      <Main>
-        {content?.body ? (
-          previewContent ? (
-            <PortableText value={content?.body.slice(0, 4)} />
-          ) : (
-            <PortableText value={content?.body} components={components} />
-          )
-        ) : null}
-      </Main>
+      {content?.body ? (
+        <Main>
+          <PortableText value={content?.body} components={components} />
+        </Main>
+      ) : null}
       {content?.imageCredit ? (
         <ImageCredit>All photos courtesy {content.imageCredit}</ImageCredit>
       ) : null}
