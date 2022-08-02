@@ -11,6 +11,12 @@ export const GlobalReset = createGlobalStyle`
 * {
   margin: 0;
 }
+
+.dark {
+  --color-background: #252525;
+  --color-text: #F2F2F2;
+}
+
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
@@ -38,6 +44,7 @@ export const GlobalStyles = createGlobalStyle`
     font-family: Avenir, sans-serif;
     line-height: 1.5;
     font-size: 1.125rem;
+    font-size: var(--font-size);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -48,10 +55,5 @@ export const GlobalStyles = createGlobalStyle`
 
   a:not(.active, :hover, :focus) {
     text-decoration: none;
-  }
-
-  // TODO: Refactor this to read from design tokens
-  .dark {
-    --color-background: #25252;
   }
 `;

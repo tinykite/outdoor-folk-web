@@ -7,9 +7,8 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-import { GlobalStyles, GlobalReset } from "./styles/global";
 import GlobalHeader from "~/components/GlobalHeader";
-// import { ThemeProvider } from "./providers/themeProvider";
+import { ThemeProvider } from "~/providers/themeProvider";
 import Footer from "./components/Footer";
 
 export const meta: MetaFunction = () => ({
@@ -93,25 +92,23 @@ const MagicThemePlaceholder = () => {
 
 export default function App() {
   return (
-    // <ThemeProvider>
-    <html lang="en">
-      <head>
-        <Meta />
-        <Links />
-        {typeof document === "undefined" ? "__STYLES__" : null}
-        {typeof document === "undefined" ? <MagicThemePlaceholder /> : null}
-      </head>
-      <body>
-        <GlobalReset />
-        <GlobalStyles />
-        <GlobalHeader />
-        <Outlet />
-        <Footer />
-        <ScrollRestoration />
-        <Scripts />
-        <LiveReload />
-      </body>
-    </html>
-    // </ThemeProvider>
+    <ThemeProvider>
+      <html lang="en">
+        <head>
+          <Meta />
+          <Links />
+          {typeof document === "undefined" ? "__STYLES__" : null}
+          {typeof document === "undefined" ? <MagicThemePlaceholder /> : null}
+        </head>
+        <body>
+          <GlobalHeader />
+          <Outlet />
+          <Footer />
+          <ScrollRestoration />
+          <Scripts />
+          <LiveReload />
+        </body>
+      </html>
+    </ThemeProvider>
   );
 }
