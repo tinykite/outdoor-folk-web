@@ -13,7 +13,7 @@ const FeaturedArticle = styled.article`
 `;
 
 const Intro = styled.p`
-  margin: 3rem auto;
+  margin: 5rem auto;
   text-align: center;
   max-width: 60rem;
   font-size: 2rem;
