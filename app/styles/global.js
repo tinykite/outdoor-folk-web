@@ -12,9 +12,16 @@ export const GlobalReset = createGlobalStyle`
   margin: 0;
 }
 
-.dark {
-  --color-background: #252525;
-  --color-text: #F2F2F2;
+:root {
+  --color-background: #FFE9DC;
+  --color-text: #0C3E4D;
+}
+
+::selection {
+  background: #ffb7b7; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: #ffb7b7; /* Gecko Browsers */
 }
 
 body {
