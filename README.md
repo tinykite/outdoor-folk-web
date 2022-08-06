@@ -1,3 +1,7 @@
+# Outdoor Folk Info
+
+Outdoor Folk is an experiment in telling stories about the intersection of creativity, community, and place. The code for this project is very much in-progress, and there are plenty of things that could use a good refactor!
+
 # Welcome to Remix!
 
 - [Remix Docs](https://remix.run/docs)
