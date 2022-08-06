@@ -42,7 +42,7 @@ const Button = styled.button`
   border-radius: 0.5rem;
 `;
 
-export async function loader({ request, params }: any) {
+export async function loader({ request, params }) {
   const query = `*[_type == "page" && slug.current == "contact"]`;
   const initialData = await getClient().fetch(query);
 
