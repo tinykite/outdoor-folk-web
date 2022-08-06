@@ -33,8 +33,6 @@ const TextAreaInput = styled.textarea`
   padding: 0.5rem;
 `;
 
-const Label = styled.label``;
-
 const Button = styled.button`
   margin-top: 1rem;
   padding: 0.5rem;
@@ -42,7 +40,7 @@ const Button = styled.button`
   border-radius: 0.5rem;
 `;
 
-export async function loader({ request, params }: any) {
+export async function loader() {
   const query = `*[_type == "page" && slug.current == "contact"]`;
   const initialData = await getClient().fetch(query);
 
