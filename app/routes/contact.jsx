@@ -75,8 +75,7 @@ const ContactPage = () => {
       .catch((error) => alert(error));
   };
   return (
-    <>
-      <Article content={initialData[0]} />
+    <Article content={initialData[0]}>
       <form
         method="post"
         name="Test Form"
@@ -98,31 +97,7 @@ const ContactPage = () => {
 
         <button type="submit">Submit</button>
       </form>
-      {/* <Form
-        method="post"
-        name="Contact"
-        data-netlify="true"
-        action="/thanks/"
-        onSubmit={handleSubmit}
-      >
-        <input name="form-name" value="Contact" type="hidden" />
-        <InputContainer>
-          <Label>Full Name</Label>
-          <Input type="text" name="name" />
-        </InputContainer>
-        <InputContainer>
-          <Label>Email</Label>
-          <Input type="email" name="email" />
-        </InputContainer>
-        <InputContainer>
-          <Label>Message</Label>
-          <TextAreaInput name="message" rows={8} />
-        </InputContainer>
-        <InputContainer>
-          <Button type="submit">Send</Button>
-        </InputContainer>
-      </Form> */}
-    </>
+    </Article>
   );
 };
 
