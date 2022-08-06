@@ -73,7 +73,8 @@ const ContactPage = () => {
       .catch((error) => alert(error));
   };
   return (
-    <Article content={initialData[0]}>
+    <>
+      <Article content={initialData[0]}></Article>{" "}
       <form
         method="post"
         name="Test Form"
@@ -95,7 +96,7 @@ const ContactPage = () => {
 
         <button type="submit">Submit</button>
       </form>
-    </Article>
+    </>
   );
 };
 
