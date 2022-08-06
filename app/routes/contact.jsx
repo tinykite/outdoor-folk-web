@@ -33,6 +33,8 @@ const TextAreaInput = styled.textarea`
   padding: 0.5rem;
 `;
 
+const Label = styled.label``;
+
 const Button = styled.button`
   margin-top: 1rem;
   padding: 0.5rem;
@@ -40,7 +42,7 @@ const Button = styled.button`
   border-radius: 0.5rem;
 `;
 
-export async function loader() {
+export async function loader({ request, params }: any) {
   const query = `*[_type == "page" && slug.current == "contact"]`;
   const initialData = await getClient().fetch(query);
 
@@ -74,28 +76,31 @@ const ContactPage = () => {
   };
   return (
     <>
-      <Article content={initialData[0]}></Article>{" "}
-      <form
+      <Article content={initialData[0]} />
+      <Form
         method="post"
-        name="Test Form"
+        name="Contact"
         data-netlify="true"
         action="/thank-you/"
         onSubmit={handleSubmit}
       >
-        <input name="form-name" value="Test Form" type="hidden" />
-
-        <label>
-          Name
-          <input name="name" type="text" />
-        </label>
-
-        <label>
-          Email
-          <input name="email" type="email" />
-        </label>
-
-        <button type="submit">Submit</button>
-      </form>
+        <input name="form-name" value="Contact" type="hidden" />
+        <InputContainer>
+          <Label>Full Name</Label>
+          <Input type="text" name="name" />
+        </InputContainer>
+        <InputContainer>
+          <Label>Email</Label>
+          <Input type="email" name="email" />
+        </InputContainer>
+        <InputContainer>
+          <Label>Message</Label>
+          <TextAreaInput name="message" rows={8} />
+        </InputContainer>
+        <InputContainer>
+          <Button type="submit">Send</Button>
+        </InputContainer>
+      </Form>
     </>
   );
 };
