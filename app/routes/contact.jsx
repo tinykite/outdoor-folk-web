@@ -51,33 +51,54 @@ export async function loader({ request, params }: any) {
   };
 }
 
-// TODO: Refactor to use the built-in Remix Form component.
-// This functions as an escape hatch, and feels unnecessary.
-const handleSubmit = (event: any) => {
-  event.preventDefault();
-
-  const form = event.target;
-  const data = new FormData(form);
-
-  // Netlify will accept form submissions to any valid URL
-  // by submitting to a static file we skip Remix's POST catcher
-  fetch("/favicon.16x16.png", {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams(data).toString(),
-  })
-    .then(() => {
-      window.location.href = "/thank-you/";
-    })
-    .catch((error) => alert(error));
-};
-
 const ContactPage = () => {
   let { initialData } = useLoaderData();
+
+  // TODO: Refactor to use the built-in Remix Form component.
+  // This functions as an escape hatch, and feels unnecessary.
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const form = event.target;
+    const data = new FormData(form);
+
+    // Netlify will accept form submissions to any valid URL
+    // by submitting to a static file we skip Remix's POST catcher
+    fetch("/favicon.ico", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(data).toString(),
+    })
+      .then(() => {
+        window.location.href = "/thank-you/";
+      })
+      .catch((error) => alert(error));
+  };
   return (
     <>
       <Article content={initialData[0]} />
-      <Form
+      <form
+        method="post"
+        name="Test Form"
+        data-netlify="true"
+        action="/thank-you/"
+        onSubmit={handleSubmit}
+      >
+        <input name="form-name" value="Test Form" type="hidden" />
+
+        <label>
+          Name
+          <input name="name" type="text" />
+        </label>
+
+        <label>
+          Email
+          <input name="email" type="email" />
+        </label>
+
+        <button type="submit">Submit</button>
+      </form>
+      {/* <Form
         method="post"
         name="Contact"
         data-netlify="true"
@@ -100,7 +121,7 @@ const ContactPage = () => {
         <InputContainer>
           <Button type="submit">Send</Button>
         </InputContainer>
-      </Form>
+      </Form> */}
     </>
   );
 };
