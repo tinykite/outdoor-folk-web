@@ -4,7 +4,7 @@ const FooterContainer = styled.footer`
   display: flex;
   text-align: center;
   justify-content: space-between;
-  margin: 6rem auto;
+  margin: 5rem auto;
   font-family: "courier", monospace;
 
   @media (min-width: 75vw) {
