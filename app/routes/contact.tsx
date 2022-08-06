@@ -51,12 +51,40 @@ export async function loader({ request, params }: any) {
   };
 }
 
+// TODO: Refactor to use the built-in Remix Form component.
+// This functions as an escape hatch, and feels unnecessary.
+const handleSubmit = (event: any) => {
+  event.preventDefault();
+
+  const form = event.target;
+  const data = new FormData(form);
+
+  // Netlify will accept form submissions to any valid URL
+  // by submitting to a static file we skip Remix's POST catcher
+  fetch("/favicon.16x16.png", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(data).toString(),
+  })
+    .then(() => {
+      window.location.href = "/thank-you/";
+    })
+    .catch((error) => alert(error));
+};
+
 const ContactPage = () => {
   let { initialData } = useLoaderData();
   return (
     <>
       <Article content={initialData[0]} />
-      <Form name="contact" method="POST" data-netlify="true">
+      <Form
+        method="post"
+        name="Contact"
+        data-netlify="true"
+        action="/thanks/"
+        onSubmit={handleSubmit}
+      >
+        <input name="form-name" value="Contact" type="hidden" />
         <InputContainer>
           <Label>Full Name</Label>
           <Input type="text" name="name" />
