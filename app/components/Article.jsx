@@ -11,10 +11,11 @@ const CenteredDivider = styled.div`
 
 const Container = styled.article`
   width: 90%;
-  margin: 4rem auto 0;
+  margin: 2rem auto 0;
 
   @media (min-width: 45rem) {
     width: 100%;
+    margin: 4rem auto 0;
   }
 `;
 

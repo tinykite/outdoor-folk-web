@@ -4,10 +4,15 @@ import { Link } from "@remix-run/react";
 import ColorSchemeToggle from "~/components/ColorSchemeToggle";
 
 const Header = styled.header`
-  margin: 3rem auto;
+  margin: 1.5rem auto 0;
+  width: 90%;
 
-  @media (min-width: 75vw) {
-    max-width: 75vw;
+  @media (min-width: 30rem) {
+    margin: 3rem auto 0;
+  }
+
+  @media (min-width: 75rem) {
+    width: 75%;
   }
 `;
 

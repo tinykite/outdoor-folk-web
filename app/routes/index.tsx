@@ -7,19 +7,33 @@ import { Link } from "@remix-run/react";
 
 const urlFor = (source: any) => urlBuilder(config).image(source);
 
+const Main = styled.main`
+  width: 90%;
+  margin: 0 auto;
+
+  @media (min-width: 65rem) {
+    width: 100%;
+  }
+`;
+
 const FeaturedArticle = styled.article`
   display: grid;
   justify-items: center;
 `;
 
 const Intro = styled.p`
-  margin: 5rem auto;
   text-align: center;
+  margin: 3rem auto;
   max-width: 60rem;
-  font-size: 2rem;
+  font-size: 1.25rem;
   font-family: "termina", sans-serif;
   font-weight: 400;
   line-height: 1.5;
+
+  @media (min-width: 50rem) {
+    font-size: 2rem;
+    margin: 5rem auto;
+  }
 `;
 
 const FeaturedArticleType = styled.p`
@@ -33,17 +47,19 @@ const FeaturedArticleType = styled.p`
 const FeaturedArticleTitle = styled.h2`
   font-family: "termina", sans-serif;
   font-weight: 600;
-  font-size: 2rem;
   max-width: 30rem;
   margin-top: 0.25rem;
+
+  @media (min-width: 50rem) {
+    font-size: 2rem;
+  }
 `;
 
 const FeaturedArticleHeader = styled.hgroup`
   text-align: center;
-  margin: 1.5rem auto;
+  margin: 1.5rem auto 0;
   display: grid;
   justify-items: center;
-  width: 100vw;
   line-height: 1.25;
 `;
 
@@ -52,8 +68,12 @@ const FeaturedArticleDescription = styled.p`
   margin-top: 0.5rem;
   font-family: "termina", sans-serif;
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 0.875rem;
   line-height: 1.5;
+
+  @media (min-width: 50rem) {
+    font-size: 1rem;
+  }
 `;
 
 export function meta() {
@@ -77,7 +97,7 @@ export default function Index() {
   const featuredArticle = posts[0];
 
   return (
-    <>
+    <Main>
       <Intro>
         Outdoor Folk is an experiment in telling stories about the intersection
         of creativity, community, and place.
@@ -104,6 +124,6 @@ export default function Index() {
           </FeaturedArticleDescription>
         </FeaturedArticleHeader>
       </FeaturedArticle>
-    </>
+    </Main>
   );
 }

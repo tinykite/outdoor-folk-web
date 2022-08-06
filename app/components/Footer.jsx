@@ -1,14 +1,17 @@
 import styled from "styled-components";
 
 const FooterContainer = styled.footer`
-  display: flex;
   text-align: center;
-  justify-content: space-between;
-  margin: 5rem auto;
   font-family: "courier", monospace;
+  width: 90%;
+  margin: 2.5rem auto;
+  font-size: 0.875rem;
 
-  @media (min-width: 75vw) {
-    max-width: 75vw;
+  @media (min-width: 75rem) {
+    display: flex;
+    justify-content: space-between;
+    width: 75%;
+    margin: 5rem auto;
   }
 `;
 
