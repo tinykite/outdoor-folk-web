@@ -66,7 +66,7 @@ const FormFields = ({ name, inline }) => {
         <>
           <InputContainer>
             <Label for="email">Email</Label>
-            <Input type="email" name="email" id="email" />
+            <Input type="email" name="email" id="email" required />
           </InputContainer>
           <InputContainer>
             <Button inline={inline} type="submit">
@@ -81,15 +81,15 @@ const FormFields = ({ name, inline }) => {
         <>
           <InputContainer>
             <Label for="name">Full Name</Label>
-            <Input type="text" name="name" id="name" />
+            <Input type="text" name="name" id="name" required />
           </InputContainer>
           <InputContainer>
             <Label for="email">Email</Label>
-            <Input type="email" name="email" id="email" />
+            <Input type="email" name="email" id="email" required />
           </InputContainer>
           <InputContainer>
             <Label for="message">Message</Label>
-            <TextAreaInput name="message" id="message" rows={8} />
+            <TextAreaInput name="message" id="message" rows={8} required />
           </InputContainer>
           <InputContainerCheckbox>
             <Checkbox name="newsletter" id="newsletter" type="checkbox" />
