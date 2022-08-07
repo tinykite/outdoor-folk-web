@@ -2,9 +2,13 @@ import styled from "styled-components";
 import Form from "~/components/Form";
 
 const NewsletterContainer = styled.aside`
-  margin: 5rem auto 0;
+  margin: 3rem auto 0;
   display: grid;
   justify-items: center;
+
+  @media (min-width: 50rem) {
+    margin: 5rem auto 0;
+  }
 `;
 
 const NewsletterForm = () => {
