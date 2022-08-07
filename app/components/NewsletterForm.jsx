@@ -11,7 +11,7 @@ const NewsletterForm = () => {
   return (
     <NewsletterContainer>
       <h2>Get new stories in your inbox</h2>
-      <Form name={"Newsletter"} inline />
+      <Form name={"Newsletter"} inline successUrl="/newsletter-confirmation/" />
     </NewsletterContainer>
   );
 };

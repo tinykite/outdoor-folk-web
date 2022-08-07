@@ -18,7 +18,7 @@ const ContactPage = () => {
   return (
     <>
       <Article content={initialData[0]} />
-      <Form name={"Contact"} />
+      <Form name={"Contact"} successUrl="/thank-you/" />
     </>
   );
 };

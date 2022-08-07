@@ -103,7 +103,7 @@ const FormFields = ({ name, inline }) => {
   }
 };
 
-const Form = ({ name, inline = false }) => {
+const Form = ({ name, inline = false, successUrl }) => {
   // TODO: Refactor to use the built-in Remix Form component.
   // This functions as an escape hatch, and feels unnecessary.
   const handleSubmit = (event) => {
@@ -120,7 +120,7 @@ const Form = ({ name, inline = false }) => {
       body: new URLSearchParams(data).toString(),
     })
       .then(() => {
-        window.location.href = "/thank-you/";
+        window.location.href = successUrl;
       })
       .catch((error) => alert(error));
   };
