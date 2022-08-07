@@ -4,6 +4,7 @@ import urlBuilder from "@sanity/image-url";
 import { getClient } from "~/lib/sanity/getClient";
 import styled from "styled-components";
 import { Link } from "@remix-run/react";
+import NewsletterForm from "~/components/NewsletterForm";
 
 const urlFor = (source: any) => urlBuilder(config).image(source);
 
@@ -124,6 +125,7 @@ export default function Index() {
           </FeaturedArticleDescription>
         </FeaturedArticleHeader>
       </FeaturedArticle>
+      <NewsletterForm />
     </Main>
   );
 }
