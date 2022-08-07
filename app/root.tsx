@@ -21,7 +21,8 @@ export const meta: MetaFunction = () => ({
   // All browser-provided UI for the element should match the targeted theme
   // For exmaple, scroll bars, spellcheck underlines, and form controls
   // More info: https://web.dev/color-scheme/
-  "color-scheme": "light dark",
+  // Temporarily disabled until dark mode is fixed
+  // "color-scheme": "light dark",
 });
 
 export function links() {
