@@ -21,6 +21,10 @@ const InputContainer = styled.p`
   }
 `;
 
+const InputContainerCheckbox = styled(InputContainer)`
+  flex-direction: row;
+`;
+
 const Input = styled.input`
   border-radius: 0.5rem;
   margin-top: 0.5rem;
@@ -31,6 +35,10 @@ const TextAreaInput = styled.textarea`
   border-radius: 0.5rem;
   margin-top: 0.5rem;
   padding: 0.5rem;
+`;
+
+const Checkbox = styled.input`
+  margin-right: 0.5rem;
 `;
 
 const Label = styled.label``;
@@ -86,17 +94,21 @@ const ContactPage = () => {
       >
         <input name="form-name" value="Contact" type="hidden" />
         <InputContainer>
-          <Label>Full Name</Label>
-          <Input type="text" name="name" />
+          <Label for="name">Full Name</Label>
+          <Input type="text" name="name" id="name" />
         </InputContainer>
         <InputContainer>
-          <Label>Email</Label>
-          <Input type="email" name="email" />
+          <Label for="email">Email</Label>
+          <Input type="email" name="email" id="email" />
         </InputContainer>
         <InputContainer>
-          <Label>Message</Label>
-          <TextAreaInput name="message" rows={8} />
+          <Label for="message">Message</Label>
+          <TextAreaInput name="message" id="message" rows={8} />
         </InputContainer>
+        <InputContainerCheckbox>
+          <Checkbox name="newsletter" id="newsletter" type="checkbox" />
+          <Label for="newsletter">Signup for the newsletter?</Label>
+        </InputContainerCheckbox>
         <InputContainer>
           <Button type="submit">Send</Button>
         </InputContainer>
