@@ -7,6 +7,10 @@ const urlFor = (source) => urlBuilder(config).image(source);
 
 const Link = styled.a`
   text-decoration: underline;
+
+  &:hover {
+    color: #3c7282;
+  }
 `;
 
 const CenteredDivider = styled.div`
