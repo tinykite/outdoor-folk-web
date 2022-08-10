@@ -5,6 +5,10 @@ import urlBuilder from "@sanity/image-url";
 
 const urlFor = (source) => urlBuilder(config).image(source);
 
+const Link = styled.a`
+  text-decoration: underline;
+`;
+
 const CenteredDivider = styled.div`
   text-align: center;
 `;
@@ -199,10 +203,15 @@ const components = {
   },
   marks: {
     center: ({ children }) => <CenteredDivider>{children}</CenteredDivider>,
+    link: ({ children, value }) => {
+      const { href } = value;
+      return <Link href={href}>{children}</Link>;
+    },
   },
 };
 
 export default function Article({ content, ...props }) {
+  console.log(content);
   return (
     <Container {...props}>
       <Headline>{content?.title ? content.title : null}</Headline>

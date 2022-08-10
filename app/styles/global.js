@@ -38,7 +38,7 @@ input, button, textarea, select {
 p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
 }
-#root, #__next {
+#root {
   isolation: isolate;
 }
 `;
@@ -58,9 +58,5 @@ export const GlobalStyles = createGlobalStyle`
 
   a:link, a:visited, a:focus, a:active {
     color: inherit;  
-  }
-
-  a:not(.active, :hover, :focus) {
-    text-decoration: none;
   }
 `;

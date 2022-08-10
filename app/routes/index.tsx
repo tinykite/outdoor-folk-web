@@ -54,6 +54,18 @@ const FeaturedArticleTitle = styled.h2`
   @media (min-width: 50rem) {
     font-size: 2rem;
   }
+
+  a:not(:hover, :active) {
+    text-decoration: none;
+  }
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 const FeaturedArticleHeader = styled.hgroup`
@@ -117,9 +129,9 @@ export default function Index() {
         </Link>
         <FeaturedArticleHeader>
           <FeaturedArticleType>{featuredArticle.postType}</FeaturedArticleType>
-          <Link to={featuredArticle.slug.current}>
+          <StyledLink to={featuredArticle.slug.current}>
             <FeaturedArticleTitle>{featuredArticle.title}</FeaturedArticleTitle>
-          </Link>
+          </StyledLink>
           <FeaturedArticleDescription>
             {featuredArticle.description}
           </FeaturedArticleDescription>

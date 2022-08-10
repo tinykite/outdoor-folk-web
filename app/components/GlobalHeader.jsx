@@ -33,6 +33,10 @@ const Logo = styled.h2`
   @media (min-width: 50rem) {
     font-size: 1.75rem;
   }
+
+  a {
+    text-decoration: none;
+  }
 `;
 
 export default function GlobalHeader() {

@@ -17,6 +17,10 @@ const ListItem = styled.li`
   &:not(:last-child) {
     margin-right: 1.5rem;
   }
+
+  a:not(:hover, :active, .active) {
+    text-decoration: none;
+  }
 `;
 
 export default function Navigation() {
