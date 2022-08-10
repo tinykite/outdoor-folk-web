@@ -215,7 +215,6 @@ const components = {
 };
 
 export default function Article({ content, ...props }) {
-  console.log(content);
   return (
     <Container {...props}>
       <Headline>{content?.title ? content.title : null}</Headline>
