@@ -84,6 +84,7 @@ const Main = styled.main`
   // These need to be refactored out
   p {
     line-height: 1.5;
+    font-size: 1.125rem;
   }
 
   p + p {
