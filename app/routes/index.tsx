@@ -93,7 +93,7 @@ export function meta() {
   return {
     title: "Outdoor Folk",
     description:
-      "Outdoor Folk is an experiment in telling stories about creativity, community, and place.",
+      "Outdoor Folk is an experiment in telling stories about creativity, community, and the outdoors.",
   };
 }
 
@@ -113,7 +113,7 @@ export default function Index() {
     <Main>
       <Intro>
         Outdoor Folk is an experiment in telling stories about the intersection
-        of creativity, community, and place.
+        of creativity, community, and the outdoors.
       </Intro>
       <FeaturedArticle key={featuredArticle.title}>
         <Link to={featuredArticle.slug.current}>
