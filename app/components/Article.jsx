@@ -20,7 +20,6 @@ const CenteredDivider = styled.div`
 const Container = styled.article`
   width: 90%;
   margin: 2rem auto 0;
-
   @media (min-width: 45rem) {
     width: 100%;
     margin: 4rem auto 0;
@@ -49,8 +48,8 @@ const Headline = styled.h1`
   }
 
   @media (min-width: 55rem) {
-    max-width: 50rem;
-  }
+    max-width: ${(props) => (props.size === "xl" ? "55rem" : "52rem")};
+    font-size: ${(props) => props.size === "xl" && "3rem"};
 `;
 
 const Description = styled.p`
@@ -206,8 +205,8 @@ const components = {
       return (
         <img
           src={urlFor(imageData)
-            .width(900)
-            .height(900)
+            .width(imageData?.width ?? 900)
+            .height(imageData?.height ?? 900)
             .fit("crop")
             .auto("format")
             .url()}
@@ -227,10 +226,13 @@ const components = {
 };
 
 export default function Article({ content, ...props }) {
+  const titleSize = content?.title?.length > 60 ? "xl" : "medium";
+
   return (
     <Container {...props}>
-      <Headline>{content?.title ? content.title : null}</Headline>
-
+      <Headline size={titleSize}>
+        {content?.title ? content.title : null}
+      </Headline>
       {content?.description ? (
         <Description>{content?.description}</Description>
       ) : null}

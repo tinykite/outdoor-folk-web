@@ -93,27 +93,36 @@ export function meta() {
   return {
     title: "Outdoor Folk",
     description:
-      "Outdoor Folk is an experiment in telling stories about creativity, community, and the environment.",
+      "Outdoor Folk is an experiment in telling stories about creativity, community, and nature.",
   };
 }
 
-export async function loader() {
-  const posts = await getClient().fetch(
+export async function loader({ request, params }: any) {
+  const requestUrl = new URL(request?.url);
+  const preview =
+    requestUrl?.searchParams?.get("preview") ===
+    process.env.SANITY_PREVIEW_SECRET;
+
+  // Query for _all_ documents with this slug
+  // There could be two: Draft and Published!
+  const initialData = await getClient(preview).fetch(
     `*[_type == "post"]{ _id, title, slug, body, description, previewImage, postType }`
   );
 
-  return { posts };
+  return { initialData, preview };
 }
 
 export default function Index() {
-  let { posts } = useLoaderData();
-  const featuredArticle = posts[0];
+  let { initialData } = useLoaderData();
+
+  // TODO: Redesign homepage for more than one article
+  const featuredArticle = initialData[0];
 
   return (
     <Main>
       <Intro>
-        Outdoor Folk is an experiment in telling stories about the intersection
-        of creativity, community, and the environment.
+        Outdoor Folk is an experiment in telling stories about creativity,
+        community, and nature.
       </Intro>
       <FeaturedArticle key={featuredArticle.title}>
         <Link to={featuredArticle.slug.current}>
