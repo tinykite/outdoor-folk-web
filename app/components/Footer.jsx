@@ -19,7 +19,7 @@ const Footer = () => {
   return (
     <FooterContainer>
       <p>© 2022 Tiny Kite</p>
-      <p>Made in Minneapolis, MN on Dakota land.</p>
+      <p>Made on Dakota land in Minneapolis, MN.</p>
     </FooterContainer>
   );
 };
