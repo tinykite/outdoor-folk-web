@@ -14,40 +14,24 @@ export async function loader({ request, params }: any) {
 
   // Query for _all_ documents with this slug
   // There could be two: Draft and Published!
-  const query = `*[_type == "post" && slug.current == $slug]`;
-  const queryParams = { slug: params.slug };
-  const initialData = await getClient(preview).fetch(query, queryParams);
+  const initialData = await getClient(preview).fetch(
+    `*[_type == "post" && slug.current == $slug]`,
+    { slug: params.slug }
+  );
 
-  return {
-    initialData,
-    preview,
-    // If `preview` mode is active, we'll need these for live updates
-    query: preview ? query : null,
-    queryParams: preview ? queryParams : null,
-  };
+  return { initialData, preview };
 }
 
 const ArticleDetail = () => {
-  let { initialData } = useLoaderData();
-  // let { initialData, preview, query, queryParams } = useLoaderData();
-
-  // // If `preview` mode is active, the <Preview /> component will update page data
-  // const [data, setData] = useState(initialData);
+  let { initialData, preview } = useLoaderData();
 
   // Bonus, a helper function checks the returned documents
   // To show Draft if in preview mode, otherwise Published
-  const content = filterDataToSingleItem(initialData);
+  const content = filterDataToSingleItem(initialData, preview);
 
   return (
     <>
-      {/* {preview ? (
-        <Preview
-          data={data}
-          setData={setData}
-          query={query}
-          queryParams={queryParams}
-        />
-      ) : null} */}
+      {preview ? <div>Preview Mode Enabled</div> : null}
       <Article content={content} />
     </>
   );
