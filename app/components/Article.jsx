@@ -82,6 +82,17 @@ const Main = styled.main`
   }
 
   // These need to be refactored out
+  ul {
+    margin: 0.5rem 0;
+    padding: 1.5rem;
+    line-height: 1.5;
+    font-size: 1.125rem;
+  }
+
+  li + li {
+    margin-top: 1.125rem;
+  }
+
   p {
     line-height: 1.5;
     font-size: 1.125rem;
