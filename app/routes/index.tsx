@@ -89,11 +89,13 @@ const FeaturedArticleDescription = styled.p`
   }
 `;
 
+const description = `Outdoor Folk is an experiment in telling stories about creativity,
+community, and nature.`;
+
 export function meta() {
   return {
     title: "Outdoor Folk",
-    description:
-      "Outdoor Folk is an experiment in telling stories about creativity, community, and nature.",
+    description,
   };
 }
 
@@ -120,10 +122,7 @@ export default function Index() {
 
   return (
     <Main>
-      <Intro>
-        Outdoor Folk is an experiment in telling stories about creativity,
-        community, and nature.
-      </Intro>
+      <Intro>{description}</Intro>
       <FeaturedArticle key={featuredArticle.title}>
         <Link to={featuredArticle.slug.current}>
           <img
