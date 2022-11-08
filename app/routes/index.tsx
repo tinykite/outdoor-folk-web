@@ -116,7 +116,7 @@ export default function Index() {
   let { initialData } = useLoaderData();
 
   // TODO: Redesign homepage for more than one article
-  const featuredArticle = initialData[0];
+  const featuredArticle = initialData[1];
 
   return (
     <Main>
